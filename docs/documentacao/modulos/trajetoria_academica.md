@@ -7,11 +7,7 @@ title: "Módulo de Trajetória Acadêmica"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Módulo de Empreendedorismo](/documentacao/modulos/empreendedorismo)
 
 # {{ page.title }}
 
@@ -132,5 +128,3 @@ Detalham a composição interna dos resultados identificados pelos indicadores c
 
 **Fontes consolidadas do módulo:** PNP 2017–2022 · CAPES · Plataforma Carolina Bori · INEP
 
-[Anterior: Módulo de Empreendedorismo](/documentacao/modulos/empreendedorismo)
-[Próximo: Módulo de Produção Acadêmica »](/documentacao/modulos/producao_academica)

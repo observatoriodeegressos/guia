@@ -7,11 +7,7 @@ title: "Estrutura de leitura dos indicadores"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Apresentação](/documentacao/apresentacao/apresentacao)
 
 # {{ page.title }}
 
@@ -60,5 +56,3 @@ Cada indicador apresentado neste relatório segue o mesmo modelo de ficha técni
 
 Em todos os recortes de agregação mínima, observam-se regras de proteção a microdados: supressão de células com baixa contagem, arredondamento controlado e limitação de cruzamentos sociodemográficos quando há risco de identificação.
 
-[Anterior: Apresentação](/documentacao/apresentacao/apresentacao)
-[Próximo: Termos utilizados »](/documentacao/termos/termos)

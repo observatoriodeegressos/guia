@@ -1,8 +1,10 @@
 name: Build PDF and Upload to GCS
 
+# Desativado o disparo automatico por push: depende da credencial GCS (secret
+# GCS_BUCKET_JSON) e do site publicado. Execute manualmente em Actions quando
+# o ambiente estiver configurado.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   pdf-to-gcs:

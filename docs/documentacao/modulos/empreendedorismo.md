@@ -7,11 +7,7 @@ title: "Módulo de Empreendedorismo"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Módulo de Salários](/documentacao/modulos/salarios)
 
 # {{ page.title }}
 
@@ -134,5 +130,3 @@ Detalham a composição interna dos resultados identificados pelos indicadores c
 
 **Fontes consolidadas do módulo:** IBGE — CNAE 2.3 · IBGE — DTB 2024 · CNPJ · PNP 2017–2022
 
-[Anterior: Módulo de Salários](/documentacao/modulos/salarios)
-[Próximo: Módulo de Trajetória Acadêmica »](/documentacao/modulos/trajetoria_academica)

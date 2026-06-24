@@ -7,11 +7,7 @@ title: "Módulo de Salários"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Módulo de Empregabilidade](/documentacao/modulos/empregabilidade)
 
 # {{ page.title }}
 
@@ -148,5 +144,3 @@ Os indicadores desagregados detalham a composição interna dos resultados salar
 
 > **Recomendações de leitura.** 1. Apresentar média, mediana e dispersão lado a lado em distribuições assimétricas. 2. Em recortes com poucos ocupados, priorizar a mediana e indicar a contagem do grupo. 3. Em análises temporais, indicar o ano-base utilizado para conversão de valores e o índice deflator quando aplicável.
 
-[Anterior: Módulo de Empregabilidade](/documentacao/modulos/empregabilidade)
-[Próximo: Módulo de Empreendedorismo »](/documentacao/modulos/empreendedorismo)

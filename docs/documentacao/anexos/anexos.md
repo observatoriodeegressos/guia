@@ -7,11 +7,7 @@ title: "Anexos — Fontes consolidadas"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Considerações finais](/documentacao/consideracoes_finais/consideracoes_finais)
 
 # {{ page.title }}
 
@@ -47,5 +43,3 @@ O quadro a seguir relaciona as bases que alimentam a Plataforma BI do Observató
 
 PNP 2017–2022 · RAIS 2023 · IBGE — DTB 2024 · IBGE — CBO‑2002 v. 2026 · IBGE — CNAE 2.3 · CNPJ — Receita Federal · CAPES · Plataforma Carolina Bori · Lattes · INEP · CNPq
 
-[Anterior: Considerações finais](/documentacao/consideracoes_finais/consideracoes_finais)
-[Próximo: Referências bibliográficas »](/documentacao/referencias/referencias)

@@ -7,11 +7,7 @@ title: "Módulo de Empregabilidade"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Visão geral dos módulos](/documentacao/apresentacao/visao_geral_dos_modulos)
 
 # {{ page.title }}
 
@@ -153,5 +149,3 @@ Os indicadores desagregados detalham a composição interna do fenômeno identif
 
 > **Recomendações de leitura.** 1. Sempre interprete um indicador desagregado em relação ao seu universo (egressos ocupados ou egressos totais, conforme o caso). 2. Cruzamentos sociodemográficos devem respeitar regras de segurança estatística. 3. Comparações entre UFs e campi exigem atenção à diferença de tamanho dos grupos.
 
-[Anterior: Visão geral dos módulos](/documentacao/apresentacao/visao_geral_dos_modulos)
-[Próximo: Módulo de Salários »](/documentacao/modulos/salarios)

@@ -58,7 +58,7 @@
                 {% if current_index > 0 %}
                   {% assign prev_item_index = current_index | minus: 1 %}
                   {% assign prev_item = navigable_items[prev_item_index] %}
-                  <a href="{{ prev_item.href }}" class="pagination-link prev">
+                  <a href="{{ prev_item.href | relative_url }}" class="pagination-link prev">
                     <i class="{{ prev_item.icon }}"></i>
                     <span>{{ prev_item.title }}</span>
                   </a>
@@ -72,7 +72,7 @@
                 {% assign last_item_index = navigable_items.size | minus: 1 %}
                 {% if current_index !=-1 and current_index < last_item_index %} {% assign next_item_index=current_index | plus: 1 %}
                   {% assign next_item=navigable_items[next_item_index] %}
-                  <a href="{{ next_item.href }}" class="pagination-link next">
+                  <a href="{{ next_item.href | relative_url }}" class="pagination-link next">
                     <span>{{ next_item.title }}</span>
                     <i class="{{ next_item.icon }}"></i>
                   </a>

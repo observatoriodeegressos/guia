@@ -7,11 +7,7 @@ title: "Referências bibliográficas"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Anexos](/documentacao/anexos/anexos)
 
 # {{ page.title }}
 
@@ -39,4 +35,3 @@ Fontes citadas ao longo do relatório técnico.
   </tbody>
 </table>
 
-[Anterior: Anexos](/documentacao/anexos/anexos)

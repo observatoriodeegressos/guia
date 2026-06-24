@@ -7,8 +7,6 @@ title: "Apresentação"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
 
 # {{ page.title }}
@@ -65,4 +63,3 @@ A padronização das fichas técnicas garante consistência estatística, transp
 
 > **Como citar este documento:** OBSERVATÓRIO DE EGRESSOS DA RFEPCT. Relatório Técnico de Indicadores: Plataforma BI. São Luís: IFMA / TED SETEC/MEC Nº 13256/2023, 2026.
 
-[Próximo: Estrutura de leitura dos indicadores »](/documentacao/apresentacao/estrutura_de_leitura)

@@ -7,11 +7,7 @@ title: "Termos utilizados"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Estrutura de leitura dos indicadores](/documentacao/apresentacao/estrutura_de_leitura)
 
 # {{ page.title }}
 
@@ -84,5 +80,3 @@ Os termos a seguir são utilizados ao longo do relatório com sentido técnico e
   </tbody>
 </table>
 
-[Anterior: Estrutura de leitura dos indicadores](/documentacao/apresentacao/estrutura_de_leitura)
-[Próximo: Visão geral dos módulos »](/documentacao/apresentacao/visao_geral_dos_modulos)

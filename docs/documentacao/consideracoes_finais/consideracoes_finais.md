@@ -7,11 +7,7 @@ title: "Considerações finais"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Módulo de Produção Acadêmica](/documentacao/modulos/producao_academica)
 
 # {{ page.title }}
 
@@ -27,5 +23,3 @@ Essa padronização reduz ambiguidades, aumenta a comparabilidade dos resultados
 
 > **Componente estruturante.** A seção de agrupamentos deve permanecer como componente estruturante do dicionário de dados. Sem essa etapa de organização conceitual e operacional, o painel tende a reproduzir inconsistências de preenchimento, categorias redundantes e variações terminológicas que comprometem a comparabilidade e a consistência analítica das informações.
 
-[Anterior: Módulo de Produção Acadêmica](/documentacao/modulos/producao_academica)
-[Próximo: Anexos »](/documentacao/anexos/anexos)

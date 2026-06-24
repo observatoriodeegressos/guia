@@ -7,11 +7,7 @@ title: "Módulo de Produção Acadêmica"
 
 Veja qual é a o nome da próxima página e da anterior e adicione abaixo no formato:
 
-[Anterior: Nome da páginas](/documentacao/caminho_do_arquivo)
-[Próximo: Nome da páginas »](/documentacao/caminho_do_arquivo) 
 -->
-
-[Anterior: Módulo de Trajetória Acadêmica](/documentacao/modulos/trajetoria_academica)
 
 # {{ page.title }}
 
@@ -144,5 +140,3 @@ Detalham a composição interna dos resultados identificados pelos indicadores c
 
 > **Recomendações de leitura.** 1. Apresentar a taxa de cobertura Lattes junto às medidas de produção — para evitar leituras distorcidas em recortes com baixa rastreabilidade. 2. Distinguir produção bibliográfica, técnica e propriedade intelectual nas análises agregadas. 3. Considerar o tempo decorrido desde a conclusão como variável de controle em análises de produtividade.
 
-[Anterior: Módulo de Trajetória Acadêmica](/documentacao/modulos/trajetoria_academica)
-[Próximo: Considerações finais »](/documentacao/consideracoes_finais/consideracoes_finais)

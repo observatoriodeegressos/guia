@@ -1,7 +1,6 @@
-url: "https://referencialpnp-jf934uf9jfijsdfiw.dsbr.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://alesmelo74.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-# baseurl: "/juifehwfh893sidjfiwe" # the subpath of your site, e.g. /blog
-baseurl: ""
+baseurl: "/guiaobservatorio" # the subpath of your site, e.g. /blog
 
 title: "Relatório Técnico de Indicadores · Observatório de Egressos da RFEPCT" # Nome do sistema ou plataforma
 subtitle: "" #Órgão ou entidade
