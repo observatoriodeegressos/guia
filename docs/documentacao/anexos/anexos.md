@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Anexos — Fontes consolidadas"
+title: "Bases integradas"
 ---
 
 <!-- Parte de Navegação
@@ -10,8 +10,6 @@ Veja qual é a o nome da próxima página e da anterior e adicione abaixo no for
 -->
 
 # {{ page.title }}
-
-## Bases integradas
 
 O quadro a seguir relaciona as bases que alimentam a Plataforma BI do Observatório de Egressos, indicando o domínio analítico, a periodicidade e o uso primário em cada módulo.
 
