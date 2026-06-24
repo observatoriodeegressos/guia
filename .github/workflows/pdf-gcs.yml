@@ -1,14 +1,22 @@
-name: Build PDF and Upload to GCS
+name: Build PDF and Publish Release
 
-# Desativado o disparo automatico por push: depende da credencial GCS (secret
-# GCS_BUCKET_JSON) e do site publicado. Execute manualmente em Actions quando
-# o ambiente estiver configurado.
+# Roda automaticamente depois que o deploy do site no Pages conclui com sucesso
+# (assim o PDF e gerado a partir do conteudo ja publicado). Tambem pode ser
+# disparado manualmente em Actions.
 on:
+  workflow_run:
+    workflows: ["Deploy Jekyll site to Pages"]
+    types: [completed]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  pdf-to-gcs:
+  build-pdf:
     runs-on: ubuntu-latest
+    # so executa se o deploy do Pages tiver dado certo (ou se for disparo manual)
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout code
@@ -19,29 +27,29 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Create gcs-bucket.json from secret
-        run: echo "$GCS_BUCKET_JSON" > gcs-bucket.json
-        env:
-          GCS_BUCKET_JSON: ${{ secrets.GCS_BUCKET_JSON }}
-
-      - name: Build Docker image
-        run: docker build -t referencial-get-sites .
-
-      - name: Run Docker container
+      - name: Install wkhtmltopdf
         run: |
-          mkdir -p temp_pdfs
-          docker run --rm \
-            -v ${{ github.workspace }}/docs:/app/docs \
-            -v ${{ github.workspace }}/temp_pdfs:/app/temp_pdfs \
-            -v ${{ github.workspace }}/gcs-bucket.json:/app/gcs-bucket.json \
-            -e GOOGLE_APPLICATION_CREDENTIALS=/app/gcs-bucket.json \
-            referencial-get-sites
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wkhtmltopdf
 
-      - name: Upload merged PDF as artifact
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate merged PDF
+        env:
+          SITE_BASE_URL: "https://alesmelo74.github.io/guiaobservatorio/"
+        run: python get_sites.py
+
+      - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
           name: merged_site
-          path: merged_site.pdf
+          path: temp_pdfs/merged_site.pdf
+
+      - name: Publish PDF to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pdf-latest
+          name: "Versão PDF (mais recente)"
+          body: "PDF consolidado gerado automaticamente a partir do site publicado."
+          files: temp_pdfs/merged_site.pdf

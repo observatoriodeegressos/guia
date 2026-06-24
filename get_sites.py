@@ -1,19 +1,11 @@
 import requests
-import xml.etree.ElementTree as ET
 import pdfkit
 import os
-from PyPDF2 import PdfMerger
 import tempfile
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
-from google.cloud import storage
+from PyPDF2 import PdfMerger
 
-def get_urls_from_sitemap(sitemap_url):
-    response = requests.get(sitemap_url)
-    response.raise_for_status()
-    root = ET.fromstring(response.content)
-    urls = [elem.text for elem in root.iter() if elem.tag.endswith('loc')]
-    return urls
 
 def get_urls_from_navbar(base_site):
     response = requests.get(base_site)
@@ -25,13 +17,25 @@ def get_urls_from_navbar(base_site):
         menu_nav = soup.find('nav', id='main-navigation')
     if not menu_nav:
         raise Exception('Could not find navbar/menu in the HTML')
+
+    base_host = urlparse(base_site).netloc
     urls = []
+    seen = set()
+
+    def add(href):
+        if not href or href.startswith('javascript'):
+            return
+        full = urljoin(base_site, href)
+        # only crawl pages on the same host (skip external links like the PDF link)
+        if urlparse(full).netloc != base_host:
+            return
+        if full not in seen:
+            seen.add(full)
+            urls.append(full)
+
     # 1st level links
     for a in menu_nav.find_all('a', class_='menu-item divider', href=True):
-        href = a['href']
-        if href.startswith('javascript'):  # skip dummy links
-            continue
-        urls.append(urljoin(base_site, href))
+        add(a['href'])
     # 2nd level links (inside menu-folder > ul > li > a)
     for folder in menu_nav.find_all('div', class_='menu-folder'):
         ul = folder.find('ul')
@@ -39,11 +43,9 @@ def get_urls_from_navbar(base_site):
             for li in ul.find_all('li'):
                 a = li.find('a', class_='menu-item', href=True)
                 if a:
-                    href = a['href']
-                    if href.startswith('javascript'):
-                        continue
-                    urls.append(urljoin(base_site, href))
+                    add(a['href'])
     return urls
+
 
 def download_as_pdf(url, output_path):
     try:
@@ -55,15 +57,15 @@ def download_as_pdf(url, output_path):
             display: none !important;
         }
         """
-        
+
         with tempfile.NamedTemporaryFile(suffix='.css', mode='w', delete=False) as f:
             f.write(css)
             css_path = f.name
-        
+
         options = {
             'user-style-sheet': css_path
         }
-        
+
         # Use wkhtmltopdf config if needed
         path_wkhtmltopdf_win = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
         path_wkhtmltopdf_linux = '/usr/bin/wkhtmltopdf'
@@ -72,15 +74,15 @@ def download_as_pdf(url, output_path):
             config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf_win)
         elif os.path.exists(path_wkhtmltopdf_linux):
             config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf_linux)
-        
+
         pdfkit.from_url(url, output_path, options=options, configuration=config)
-        
-        # Clean up temporary CSS file
+
         os.remove(css_path)
         return True
     except Exception as e:
         print(f"Error converting {url} to PDF: {e}")
         return False
+
 
 def merge_pdfs(pdf_files, output_path):
     merger = PdfMerger()
@@ -90,43 +92,61 @@ def merge_pdfs(pdf_files, output_path):
     merger.write(output_path)
     merger.close()
 
+
 def upload_to_gcs(bucket_name, source_file, destination_blob, credentials_path):
-    client = storage.Client.from_service_account_json(credentials_path)
-    bucket = client.bucket(bucket_name)
-    blob = bucket.blob(destination_blob)
-    blob.upload_from_filename(source_file)
-    print(f"Uploaded {source_file} to gs://{bucket_name}/{destination_blob}")
+    """Optional GCS upload. Skipped if credentials are missing/invalid."""
+    if not credentials_path or not os.path.exists(credentials_path) or os.path.getsize(credentials_path) == 0:
+        print("GCS credentials not provided; skipping GCS upload.")
+        return False
+    try:
+        from google.cloud import storage
+        client = storage.Client.from_service_account_json(credentials_path)
+        bucket = client.bucket(bucket_name)
+        blob = bucket.blob(destination_blob)
+        blob.upload_from_filename(source_file)
+        print(f"Uploaded {source_file} to gs://{bucket_name}/{destination_blob}")
+        return True
+    except Exception as e:
+        print(f"GCS upload skipped/failed: {e}")
+        return False
+
 
 if __name__ == "__main__":
-    #sitemap_url = "https://referencialpnp-jf934uf9jfijsdfiw.dsbr.org/sitemap.xml"
-    base_site = "https://referencialpnp-jf934uf9jfijsdfiw.dsbr.org/"
-    #urls = get_urls_from_sitemap(sitemap_url)
+    # URL do site publicado (sobrescreva via variavel de ambiente SITE_BASE_URL).
+    base_site = os.environ.get(
+        "SITE_BASE_URL",
+        "https://alesmelo74.github.io/guiaobservatorio/",
+    )
+    if not base_site.endswith('/'):
+        base_site += '/'
+
     urls = get_urls_from_navbar(base_site)
-    
-    # Create temp directory for individual PDFs
+
     temp_dir = "temp_pdfs"
     os.makedirs(temp_dir, exist_ok=True)
 
     pdf_files = []
+    print(f"Base site: {base_site}")
     print(f"Found {len(urls)} URLs to process (from navbar order)")
-    
-    # Download and convert each URL to PDF
+
     for i, url in enumerate(urls):
         print(f"Processing {i+1}/{len(urls)}: {url}")
         output_pdf = os.path.join(temp_dir, f"page_{i}.pdf")
         if download_as_pdf(url, output_pdf):
             pdf_files.append(output_pdf)
-    
-    # Merge all PDFs
+
     if pdf_files:
-        output_file = "merged_site.pdf"
+        # Grava em temp_pdfs (volume montado) para que o workflow consiga publicar.
+        output_file = os.path.join(temp_dir, "merged_site.pdf")
         print(f"Merging {len(pdf_files)} PDFs into {output_file}")
         merge_pdfs(pdf_files, output_file)
         print(f"Successfully created {output_file}")
-        # Upload to GCS
-        bucket_name = "wwwdocpbi"
+
+        # Upload opcional para GCS (so ocorre se as credenciais existirem).
+        bucket_name = os.environ.get("GCS_BUCKET", "wwwdocpbi")
         credentials_path = "gcs-bucket.json"
         destination_blob = "merged_site.pdf"
         upload_to_gcs(bucket_name, output_file, destination_blob, credentials_path)
     else:
         print("No PDFs were created.")
+        raise SystemExit(1)

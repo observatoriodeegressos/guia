@@ -39,7 +39,7 @@
                             </a>
                             {% include render_menu_item.html item=child root_folder="false" %}
                         {% else %}
-                            <a class="menu-item {% if child.href == current_url %}active{% endif %}" href="{{ child.href | default: "javascript: void(0)" }}">
+                            <a class="menu-item {% if child.href == current_url %}active{% endif %}" href="{% if child.href %}{{ child.href | relative_url }}{% else %}javascript: void(0){% endif %}">
                                 <span class="icon">
                                     <i class="{{ child.icon }}" aria-hidden="true"></i>
                                 </span>
@@ -53,7 +53,7 @@
         </div>
     {% endif %}
 {% else %}
-    <a class="menu-item divider {% if is_active %}active{% endif %}" href="{{ item.href | | relative_url }}">
+    <a class="menu-item divider {% if is_active %}active{% endif %}" href="{{ item.href | relative_url }}">
         {% if item.icon %}
             <span class="icon">
                 <i class="{{ item.icon }}" aria-hidden="true"></i>
