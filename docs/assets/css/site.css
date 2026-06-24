@@ -65,3 +65,10 @@ p {
 #main .social-links a[href] {
     text-decoration: none;
 }
+
+/* Subtitulos do conteudo em azul institucional gov.br (igual ao guia original) */
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+    color: #1351b4;
+}
