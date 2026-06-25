@@ -81,7 +81,8 @@ def get_urls_from_navbar(base_site):
 
 def download_as_pdf(page, url, output_path):
     try:
-        page.goto(url, wait_until='networkidle', timeout=60000)
+        page.goto(url, wait_until='load', timeout=60000)
+        page.wait_for_timeout(800)
         page.add_style_tag(content=HIDE_CSS)
         page.emulate_media(media='screen')
         page.pdf(
