@@ -19,21 +19,21 @@ O quadro a seguir relaciona as bases que alimentam a Plataforma BI do Observató
       <th style="text-align: center">Base</th>
       <th style="text-align: center">Domínio</th>
       <th style="text-align: center">Periodicidade</th>
-      <th style="text-align: center">Uso primário · Módulos</th>
+      <th style="text-align: center">Uso primário</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>PNP — Plataforma Nilo Peçanha</td><td>Educacional</td><td>Anual</td><td>População de referência e atributos de formação · 01–05</td></tr>
-    <tr><td>RAIS</td><td>Ocupacional</td><td>Anual</td><td>Vínculos formais de trabalho e remuneração · 01, 02</td></tr>
-    <tr><td>CBO‑2002 (v. 2026)</td><td>Classificatória</td><td>Versionada</td><td>Classificação ocupacional e requisitos de escolaridade · 01, 02</td></tr>
-    <tr><td>CNAE 2.3</td><td>Classificatória</td><td>Versionada</td><td>Setor de atividade econômica · 01, 02, 03</td></tr>
-    <tr><td>IBGE — DTB 2024</td><td>Territorial</td><td>Anual</td><td>Coordenadas municipais e raio de atuação · 01, 02, 03</td></tr>
-    <tr><td>Receita Federal — CNPJ</td><td>Empresarial</td><td>Contínua</td><td>Vínculos societários e administrativos · 03</td></tr>
-    <tr><td>Plataforma Carolina Bori</td><td>Acadêmica</td><td>Contínua</td><td>Reconhecimento de títulos e pós-graduação · 05</td></tr>
-    <tr><td>CAPES</td><td>Acadêmica</td><td>Anual</td><td>Pós-graduação stricto sensu e produção técnica no exterior · 04, 05</td></tr>
-    <tr><td>Plataforma Lattes</td><td>Científica</td><td>Contínua</td><td>Produção bibliográfica, técnica e propriedade intelectual · 04</td></tr>
-    <tr><td>INEP</td><td>Educacional</td><td>Anual</td><td>Novos vínculos discentes e continuidade educacional · 05</td></tr>
-    <tr><td>CNPq — Áreas do Conhecimento</td><td>Classificatória</td><td>Versionada</td><td>Categorização temática da produção acadêmica · 04</td></tr>
+    <tr><td>PNP — Plataforma Nilo Peçanha</td><td>Educacional</td><td>Anual</td><td>População de referência e atributos de formação</td></tr>
+    <tr><td>RAIS</td><td>Ocupacional</td><td>Anual</td><td>Vínculos formais de trabalho e remuneração</td></tr>
+    <tr><td>CBO‑2002 (v. 2026)</td><td>Classificatória</td><td>Versionada</td><td>Classificação ocupacional e requisitos de escolaridade</td></tr>
+    <tr><td>CNAE 2.3</td><td>Classificatória</td><td>Versionada</td><td>Setor de atividade econômica</td></tr>
+    <tr><td>IBGE — DTB 2024</td><td>Territorial</td><td>Anual</td><td>Coordenadas municipais e raio de atuação</td></tr>
+    <tr><td>Receita Federal — CNPJ</td><td>Empresarial</td><td>Contínua</td><td>Vínculos societários e administrativos</td></tr>
+    <tr><td>Plataforma Carolina Bori</td><td>Acadêmica</td><td>Contínua</td><td>Reconhecimento de títulos e pós-graduação</td></tr>
+    <tr><td>CAPES</td><td>Acadêmica</td><td>Anual</td><td>Pós-graduação stricto sensu e produção técnica no exterior</td></tr>
+    <tr><td>Plataforma Lattes</td><td>Científica</td><td>Contínua</td><td>Produção bibliográfica, técnica e propriedade intelectual</td></tr>
+    <tr><td>INEP</td><td>Educacional</td><td>Anual</td><td>Novos vínculos discentes e continuidade educacional</td></tr>
+    <tr><td>CNPq — Áreas do Conhecimento</td><td>Classificatória</td><td>Versionada</td><td>Categorização temática da produção acadêmica</td></tr>
   </tbody>
 </table>
 
